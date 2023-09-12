@@ -72,4 +72,6 @@ yarn-error.log
 
 .env
 
+.bundle
+
 key.properties
