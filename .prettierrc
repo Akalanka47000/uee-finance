@@ -1,0 +1,27 @@
+{
+  "printWidth": 120,
+  "bracketSameLine": true,
+  "bracketSpacing": true,
+  "singleQuote": true,
+  "quoteProps": "consistent",
+  "trailingComma": "none",
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "^(react/(.*)$)|^(react$)",
+    "^(.*react-*(.*)$)",
+    "^(.*redux-*(.*)$)",
+    "^(lodash$)|^(moment$)",
+    "<THIRD_PARTY_MODULES>",
+    "^assets/(.*)$",
+    "^components/(.*)$",
+    "^config/(.*)$",
+    "^icons/(.*)$",
+    "^navigation/(.*)$",
+    "^screens/(.*)$",
+    "^store/(.*)$",
+    "^utils/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": false,
+  "importOrderSortSpecifiers": true
+}
