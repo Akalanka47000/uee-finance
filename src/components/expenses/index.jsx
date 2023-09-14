@@ -1,1 +1,2 @@
-export { default as expenseDialog } from './dialog';
+export { default as BalanceDialog } from './BalanceDialog';
+export { default as ExpenseDialog } from './ExpenseDialog';

@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  showExpenseDialog: false
+  showExpenseDialog: false,
+  showBalanceDialog: false
 };
 
 export const slice = createSlice({
@@ -10,10 +11,13 @@ export const slice = createSlice({
   reducers: {
     toggleExpenseDialog(state, action) {
       state.showExpenseDialog = action.payload;
+    },
+    toggleBalanceDialog(state, action) {
+      state.showBalanceDialog = action.payload;
     }
   }
 });
 
-export const { toggleExpenseDialog } = slice.actions;
+export const { toggleExpenseDialog, toggleBalanceDialog } = slice.actions;
 
 export default slice.reducer;

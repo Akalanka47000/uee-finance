@@ -1,16 +1,15 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { Text } from 'react-native-paper';
 import { useSelector } from 'react-redux';
-import moment from 'moment';
-import { Button, Divider } from '@/components';
-import ExpenseDialog from '@/components/expenses/dialog';
+import { default as moment } from 'moment';
+import { BalanceDialog, Button, Divider, ExpenseDialog } from '@/components';
 import { colors } from '@/config/theme';
 import { MoveRight } from '@/icons';
-import store from '@/store';
+import { store } from '@/store';
 import { currentMonthExpenses, setSelectedExpense } from '@/store/reducers/data/expenses';
-import { toggleExpenseDialog } from '@/store/reducers/ui/home';
+import { toggleBalanceDialog, toggleExpenseDialog } from '@/store/reducers/ui/home';
 import styles from './styles';
 
 const categories = ['Shopping', 'Food', 'Travel', 'Entertainment', 'Health', 'Education', 'Other'];
@@ -22,8 +21,16 @@ const onExpenseClick = (expense) => {
   store.dispatch(toggleExpenseDialog(true));
 };
 
+const onBalancePress = () => store.dispatch(toggleBalanceDialog(true));
+
 const Home = () => {
   const expenses = useSelector(currentMonthExpenses);
+  const startingBalance = useSelector((state) => state.data.expenses.startingBalance);
+
+  const savings = useMemo(() => {
+    if (startingBalance === null) return 0;
+    return expenses.reduce((acc, expense) => acc - expense.amount, startingBalance);
+  }, [expenses, startingBalance]);
 
   const renderItem = useCallback(({ item: expense }) => (
     <Pressable key={expense.day} style={styles.expenseCard(expense.day)} onPress={() => onExpenseClick(expense)}>
@@ -59,18 +66,19 @@ const Home = () => {
           keyExtractor={(item) => `${item.day}-${item.amount}`}
         />
         <View style={styles.summary}>
-          <View style={[styles.summaryStartLabel]}>
+          <Pressable style={[styles.summaryStartLabel]} onPress={onBalancePress}>
             <Text style={[styles.summaryText, { color: colors.white }]}>Starting</Text>
-            <Text style={[styles.summaryTextValue, { color: colors.white }]}>$0.00</Text>
-          </View>
+            <Text style={[styles.summaryTextValue, { color: colors.white }]}>Rs {startingBalance?.toFixed(2)}</Text>
+          </Pressable>
           <MoveRight />
           <View style={styles.summaryLabel}>
             <Text style={styles.summaryText}>Savings</Text>
-            <Text style={styles.summaryTextValue}>$0.00</Text>
+            <Text style={styles.summaryTextValue}>Rs {savings.toFixed(2)}</Text>
           </View>
         </View>
       </View>
       <ExpenseDialog />
+      <BalanceDialog />
     </>
   );
 };

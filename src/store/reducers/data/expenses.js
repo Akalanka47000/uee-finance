@@ -10,6 +10,7 @@ const initialState = {
       amount: 0
     }))
   },
+  startingBalance: 0,
   selectedExpense: null
 };
 
@@ -33,11 +34,14 @@ export const slice = createSlice({
     },
     setSelectedExpense(state, action) {
       state.selectedExpense = action.payload;
+    },
+    setStartingBalance(state, action) {
+      state.startingBalance = action.payload;
     }
   }
 });
 
-export const { setExpenses, addExpense, updateExpense, setSelectedExpense } = slice.actions;
+export const { setExpenses, addExpense, updateExpense, setSelectedExpense, setStartingBalance } = slice.actions;
 
 export const currentMonthExpenses = (state) => state.data.expenses.all[moment().format('YYYY-MM')];
 

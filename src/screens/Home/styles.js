@@ -5,7 +5,7 @@ import { screenWidth, withOpacity } from '@/utils';
 const summaryLabel = {
   borderRadius: 100,
   ...layout.columnCenter,
-  ...padding.symmetric(9, 32),
+  ...padding.symmetric(9, 28),
   color: colors.white,
   backgroundColor: colors.white,
   gap: 0
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     ...margin.vertical(20),
     ...layout.rowBetween,
     width: '100%',
-    gap: 24,
+    gap: 15,
     paddingHorizontal: 25
   },
   summaryLabel,
