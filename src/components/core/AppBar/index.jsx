@@ -3,11 +3,11 @@ import { useNavigation } from '@react-navigation/native';
 import { TouchableHighlight, View } from 'react-native';
 import { Text } from 'react-native-paper';
 import { layout, typography } from '@/config/theme';
-import { ArrowLeft, Refresh } from '@/icons';
+import { ArrowLeft, Menu } from '@/icons';
 import { default as isEqual } from 'lodash/isEqual';
 import defaultStyles from './styles';
 
-const AppBar = ({ title, back = true, onBackPress, leading, onRefresh, actions = [], styles = {} }) => {
+const AppBar = ({ title, back = true, onBackPress, leading, menu = true, actions = [], styles = {} }) => {
   const navigation = useNavigation();
 
   const backPressHandler = () => {
@@ -31,18 +31,18 @@ const AppBar = ({ title, back = true, onBackPress, leading, onRefresh, actions =
         <View style={[defaultStyles.title, !leading && layout.rowStart, styles.title]}>
           <Text style={[defaultStyles.titleText, leading && typography.body2, styles.titleText]}>{title}</Text>
         </View>
-        {onRefresh || actions.length ? (
+        {menu || actions.length ? (
           <View style={[defaultStyles.actions, styles.actions]}>
-            {onRefresh && (
-              <TouchableHighlight onPress={onRefresh} style={[defaultStyles.icon, styles.icon]}>
-                <Refresh />
-              </TouchableHighlight>
-            )}
             {actions.map((a, key) => (
               <TouchableHighlight key={key} onPress={a.onPress} style={[defaultStyles.icon, a.style]}>
                 {a.children()}
               </TouchableHighlight>
             ))}
+            {menu && (
+              <TouchableHighlight onPress={() => {}} style={[defaultStyles.icon, styles.icon]}>
+                <Menu />
+              </TouchableHighlight>
+            )}
           </View>
         ) : null}
       </View>
