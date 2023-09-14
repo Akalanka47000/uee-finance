@@ -5,6 +5,7 @@ import { AppBar } from '@/components/core';
 import theme from '@/config/theme';
 import { FileDownload } from '@/icons';
 import { Home } from '@/screens';
+import { downloadCurrentMonthExpenseReport } from '@/services';
 import { navigationRef } from './root';
 
 const Stack = createNativeStackNavigator();
@@ -25,7 +26,7 @@ const NavigationStack = () => {
                 actions={[
                   {
                     children: FileDownload,
-                    onPress: () => null
+                    onPress: downloadCurrentMonthExpenseReport
                   }
                 ]}
               />
