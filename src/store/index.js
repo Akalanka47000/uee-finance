@@ -1,5 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { default as createDebugger } from 'redux-flipper-colorized';
+import { persistStore } from 'redux-persist';
 import { expenseApi } from './api';
 import { default as rootReducer } from './reducers';
 
@@ -21,5 +22,7 @@ export function makeStore() {
 }
 
 export const store = makeStore();
+
+export const persistor = persistStore(store);
 
 export default store;

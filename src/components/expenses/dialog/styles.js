@@ -6,33 +6,34 @@ const styles = StyleSheet.create({
   contentContainerStyle: {
     ...layout.columnCenter,
     ...margin.horizontal('auto'),
-    width: '85%',
+    width: '80%',
     backgroundColor: withOpacity(colors.black, 0.9),
     gap: 24,
-    padding: 24,
-    borderRadius: 16
+    paddingVertical: 32,
+    paddingHorizontal: 24,
+    borderRadius: 12
   },
-  title: {
-    ...typography.body0,
-    color: colors.white,
-    fontSize: 25
-  },
-  content: {
-    ...typography.body2,
-    color: colors.gray,
-    textAlign: 'center'
-  },
-  actionWrapper: {
-    display: 'flex',
-    flexDirection: 'row',
+  header: {
+    ...layout.columnCenter,
     gap: 12
   },
-  action: {
+  text: {
+    ...typography.body2,
+    fontSize: 25,
+    color: colors.white
+  },
+  date: {
+    ...typography.body2,
+    fontSize: 20,
+    color: colors.white
+  },
+  input: {
+    width: '100%',
+    color: colors.white
+  },
+  confirmBtn: {
     root: {
-      flex: 1
-    },
-    labelStyle: {
-      ...typography.body1
+      width: '100%'
     }
   }
 });
