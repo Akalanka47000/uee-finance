@@ -7,7 +7,7 @@ const contentStyle = {
   borderWidth: 2,
   borderRadius: 4,
   ...layout.rowCenter,
-  ...padding.symmetric(14, 28),
+  ...padding.symmetric(12, 22),
   borderColor: colors.white
 };
 

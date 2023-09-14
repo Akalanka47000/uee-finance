@@ -6,3 +6,4 @@ export { default as Refresh } from './Refresh';
 export { default as Search } from './Search';
 export { default as Edit } from './Edit';
 export { default as More } from './More';
+export { default as MoveRight } from './MoveRight';

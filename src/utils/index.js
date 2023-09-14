@@ -1,4 +1,5 @@
 export * from './cache';
+export * from './date';
 export * from './reducers';
 export * from './size';
 

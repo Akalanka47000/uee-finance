@@ -9,7 +9,7 @@ export * from './typography';
 
 export const colors = {
   ...MD2LightTheme.colors,
-  background: '#1c1c1c',
+  background: '#121212',
   black: '#000000',
   white: '#ffffff',
   gray: '#c7c7c7',
@@ -24,7 +24,7 @@ colors.surface = colors.white;
 
 const theme = {
   ...MD2LightTheme,
-  dark: false,
+  dark: true,
   version: 2,
   colors,
   fonts
