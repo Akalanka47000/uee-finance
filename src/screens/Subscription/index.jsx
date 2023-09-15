@@ -10,15 +10,13 @@ const Subscription = () => {
   const onUpgrade = () => global.alert.info('This feature is not available yet');
 
   return (
-    <>
-      <View style={styles.root}>
-        <Text style={styles.title}>Current Plan</Text>
-        <Text style={styles.plan(plan)}>{plan}</Text>
-        <Button onPress={onUpgrade} styles={styles.upgradeBtn}>
-          Upgrade
-        </Button>
-      </View>
-    </>
+    <View style={styles.root}>
+      <Text style={styles.title}>Current Plan</Text>
+      <Text style={styles.plan(plan)}>{plan}</Text>
+      <Button onPress={onUpgrade} styles={styles.upgradeBtn}>
+        Upgrade
+      </Button>
+    </View>
   );
 };
 

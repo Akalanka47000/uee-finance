@@ -15,6 +15,7 @@
     "@react-native-async-storage/async-storage": "1.19.3",
     "@react-navigation/drawer": "6.6.3",
     "@react-navigation/native": "6.1.7",
+    "@react-navigation/native-stack": "6.9.13",
     "@reduxjs/toolkit": "1.9.5",
     "lodash": "4.17.21",
     "moment": "2.29.4",
@@ -31,6 +32,7 @@
     "react-native-screens": "3.22.0",
     "react-native-shimmer-placeholder": "2.0.9",
     "react-native-svg": "13.9.0",
+    "react-native-vision-camera": "3.0.0",
     "react-redux": "8.1.1",
     "redux-persist": "6.0.0",
     "rn-fetch-blob": "0.12.0"

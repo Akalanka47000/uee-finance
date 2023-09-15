@@ -13,7 +13,7 @@ const Loader = ({ styles = {} }) => {
   const show = (text) => {
     setOptions({
       visible: true,
-      text: text ?? ''
+      text: text ?? 'Loading'
     });
   };
 
@@ -31,7 +31,7 @@ const Loader = ({ styles = {} }) => {
       visible={options.visible}
       onDismiss={hide}
       contentContainerStyle={[defaultStyles.contentContainerStyle, styles.contentContainerStyle]}>
-      <ActivityIndicator animating={true} color={colors.smoke} size={48} />
+      <ActivityIndicator animating={true} color={colors.success} size={48} />
       {options.text && <Text style={[defaultStyles.text, styles.text]}>{options.text}</Text>}
     </Modal>
   );
