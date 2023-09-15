@@ -39,7 +39,7 @@ const AppBar = ({ title, back = true, onBackPress, leading, menu = true, actions
               </TouchableHighlight>
             ))}
             {menu && (
-              <TouchableHighlight onPress={() => {}} style={[defaultStyles.icon, styles.icon]}>
+              <TouchableHighlight onPress={() => navigation.openDrawer()} style={[defaultStyles.icon, styles.icon]}>
                 <Menu />
               </TouchableHighlight>
             )}
