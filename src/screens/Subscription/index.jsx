@@ -1,13 +1,14 @@
-import { View } from 'react-native';
+import { Linking, View } from 'react-native';
 import { Text } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import { Button } from '@/components';
+import secrets from '@/config/secrets';
 import styles from './styles';
 
 const Subscription = () => {
   const plan = useSelector((state) => state.data.subscription.plan);
 
-  const onUpgrade = () => global.alert.info('This feature is not available yet');
+  const onUpgrade = () => Linking.openURL(secrets.stripe_payment_link);
 
   return (
     <View style={styles.root}>
