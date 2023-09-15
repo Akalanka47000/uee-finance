@@ -13,15 +13,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     borderRadius: 12
   },
+  header: {
+    ...layout.columnCenter,
+    gap: 12
+  },
   text: {
     ...typography.body2,
     fontSize: 25,
     color: colors.white
   },
-  date: {
-    ...typography.body2,
-    fontSize: 20,
-    color: colors.white
+  inputWrapper: {
+    width: '100%'
+  },
+  label: {
+    color: colors.gray,
+    marginBottom: 5
   },
   input: {
     width: '100%',

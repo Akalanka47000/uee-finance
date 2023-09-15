@@ -32,6 +32,8 @@
     "react-native-screens": "3.22.0",
     "react-native-shimmer-placeholder": "2.0.9",
     "react-native-svg": "13.9.0",
+    "react-native-swipeout": "2.3.6",
+    "react-native-uuid": "2.0.1",
     "react-native-vision-camera": "3.0.0",
     "react-redux": "8.1.1",
     "redux-persist": "6.0.0",
