@@ -14,9 +14,7 @@ const summaryLabel = {
 const styles = StyleSheet.create({
   root: {
     ...layout.columnStart,
-    ...layout.expand,
-    position: 'relative',
-    zIndex: 1
+    ...layout.expand
   },
   categorySlider: {
     height: 125

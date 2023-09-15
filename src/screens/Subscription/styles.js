@@ -1,90 +1,34 @@
 import { StyleSheet } from 'react-native';
-import { colors, layout, margin, padding, typography } from '@/config/theme';
-import { screenWidth, withOpacity } from '@/utils';
-
-const summaryLabel = {
-  borderRadius: 100,
-  ...layout.columnCenter,
-  ...padding.symmetric(9, 28),
-  color: colors.white,
-  backgroundColor: colors.white,
-  gap: 0
-};
+import { colors, layout, padding, typography } from '@/config/theme';
 
 const styles = StyleSheet.create({
   root: {
-    ...layout.columnStart,
+    ...layout.columnCenter,
     ...layout.expand,
-    position: 'relative',
-    zIndex: 1
+    gap: 24
   },
-  categorySlider: {
-    height: 125
-  },
-  categoryButton: {
-    ...margin.symmetric(0, 7)
-  },
-  month: {
+  title: {
     ...typography.body0,
     color: colors.white,
-    fontSize: 25,
-    marginBottom: 22
+    fontSize: 30
   },
-  expenseCardList: {
-    flexGrow: 1,
-    width: '100%'
-  },
-  expenseCardColumns: {
-    columnGap: 20
-  },
-  expenseCardContent: {
-    gap: 20,
-    paddingHorizontal: 25,
-    paddingVertical: 5
-  },
-  expenseCard: (day) => ({
-    ...padding.symmetric(8, 8),
-    ...layout.columnCenter,
-    gap: 3,
-    backgroundColor: day > new Date().getDate() ? withOpacity(colors.gray, 0.6) : colors.white,
-    aspectRatio: 1,
-    width: (screenWidth - (50 + 40)) / 3,
-    borderRadius: 200,
-    borderWidth: 3,
-    borderColor: withOpacity(colors.success, 0.5)
-  }),
-  expenseCardDate: {
-    ...typography.body2,
-    color: withOpacity(colors.black, 0.5)
-  },
-  expenseCardDivider: {
-    backgroundColor: colors.success,
-    width: '100%'
-  },
-  expenseCardAmount: {
+  plan: (plan) => ({
     ...typography.body0,
-    color: colors.black,
-    fontSize: 20
-  },
-  summary: {
-    ...margin.vertical(20),
-    ...layout.rowBetween,
-    width: '100%',
-    gap: 15,
-    paddingHorizontal: 25
-  },
-  summaryLabel,
-  summaryStartLabel: {
-    ...summaryLabel,
-    backgroundColor: colors.success
-  },
-  summaryText: {
-    ...typography.body5,
-    fontSize: 11
-  },
-  summaryTextValue: {
-    ...typography.body1,
-    fontSize: 16
+    color: plan == 'FREE' ? colors.green : colors.success,
+    fontSize: 40
+  }),
+  upgradeBtn: {
+    root: {
+      borderRadius: 100
+    },
+    labelStyle: {
+      fontSize: 20
+    },
+    contentStyle: {
+      maxHeight: 120,
+      borderRadius: 100,
+      ...padding.symmetric(12, 42)
+    }
   }
 });
 

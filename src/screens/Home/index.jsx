@@ -54,7 +54,7 @@ const Home = () => {
             </Button>
           ))}
         </ScrollView>
-        <Text style={styles.month}>------- {moment().format('MMM')} -------</Text>
+        <Text style={styles.month}>------- {moment().format('MMMM')} -------</Text>
         <FlatList
           data={expenses}
           style={styles.expenseCardList}

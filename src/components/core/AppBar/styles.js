@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     ...layout.square(36),
     borderWidth: 1,
     borderColor: colors.gray,
-    borderRadius: 5
+    borderRadius: 100
   },
   title: {
     ...layout.expand,

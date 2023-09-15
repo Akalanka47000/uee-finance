@@ -13,6 +13,7 @@ export const colors = {
   black: '#000000',
   white: '#ffffff',
   gray: '#c7c7c7',
+  green: '#00bf33',
   transparent: 'transparent',
   shimmer: '#262626',
   success: '#1762DA',

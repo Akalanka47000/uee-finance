@@ -4,7 +4,7 @@ import { default as RNBootSplash } from 'react-native-bootsplash';
 import { AppBar } from '@/components/core';
 import { default as theme } from '@/config/theme';
 import { FileDownload } from '@/icons';
-import { Home } from '@/screens';
+import { Budgets, Home, Scanner, Subscription } from '@/screens';
 import { downloadCurrentMonthExpenseReport } from '@/services';
 import { navigationRef } from './root';
 import styles from './style';
@@ -30,6 +30,7 @@ const NavigationStack = () => {
                     onPress: downloadCurrentMonthExpenseReport
                   }
                 ]}
+                back={false}
               />
             ),
             animation: 'slide_from_right'
@@ -37,25 +38,25 @@ const NavigationStack = () => {
         />
         <Drawer.Screen
           name="Budgets"
-          component={Home}
+          component={Budgets}
           options={{
-            header: () => <AppBar title="Budgets" />,
+            header: () => <AppBar title="Budgets" back={false} />,
             animation: 'slide_from_right'
           }}
         />
         <Drawer.Screen
           name="Subscription"
-          component={Home}
+          component={Subscription}
           options={{
-            header: () => <AppBar title="Subscription" />,
+            header: () => <AppBar title="Subscription" back={false} />,
             animation: 'slide_from_right'
           }}
         />
         <Drawer.Screen
           name="Invoice Scanner"
-          component={Home}
+          component={Scanner}
           options={{
-            header: () => <AppBar title="Scan Invoice" />,
+            header: () => <AppBar title="Scan Invoice" back={false} />,
             animation: 'slide_from_right'
           }}
         />
