@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
   plan: (plan) => ({
     ...typography.body0,
-    color: plan == 'FREE' ? colors.green : colors.success,
+    color: plan === 'FREE' ? colors.green : colors.success,
     fontSize: 40
   }),
   upgradeBtn: {

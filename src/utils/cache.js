@@ -17,7 +17,7 @@ export class Cache {
     if (!data) return null;
     const value = data.split('#:#');
     if (value.length > 1) {
-      const expiryDate = parseInt(value[1]);
+      const expiryDate = Number(value[1]);
       if (new Date().getTime() > expiryDate) {
         AsyncStorage.removeItem(key);
         return null;
