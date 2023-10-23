@@ -1,11 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { Camera, useCameraDevices } from 'react-native-vision-camera';
 
 const Scanner = () => {
+  const [hasPermission, setHasPermission] = useState(false);
+
   const checkPermission = async () => {
-    const cameraPermission = await Camera.getCameraPermissionStatus();
-    if (cameraPermission !== 'granted') await Camera.requestCameraPermission();
+    let cameraPermission = await Camera.getCameraPermissionStatus();
+    if (cameraPermission !== 'granted') cameraPermission = await Camera.requestCameraPermission();
+    setHasPermission(cameraPermission === 'granted');
   };
 
   const devices = useCameraDevices();
@@ -21,7 +24,7 @@ const Scanner = () => {
     }
   }, [device]);
 
-  if (!device) return <></>;
+  if (!device || !hasPermission) return <></>;
 
   return <Camera style={StyleSheet.absoluteFill} device={device} isActive={true} />;
 };

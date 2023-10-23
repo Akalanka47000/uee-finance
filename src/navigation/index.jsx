@@ -4,7 +4,7 @@ import { default as RNBootSplash } from 'react-native-bootsplash';
 import { AppBar } from '@/components/core';
 import { default as theme } from '@/config/theme';
 import { FileDownload } from '@/icons';
-import { Budgets, Home, Scanner, Subscription } from '@/screens';
+import { Budgets, EBills, Home, Scanner, Subscription } from '@/screens';
 import { downloadCurrentMonthExpenseReport } from '@/services';
 import { navigationRef } from './root';
 import styles from './style';
@@ -57,6 +57,14 @@ const NavigationStack = () => {
           component={Scanner}
           options={{
             header: () => <AppBar title="Scan Invoice" back={false} />,
+            animation: 'slide_from_right'
+          }}
+        />
+        <Drawer.Screen
+          name="E-Bills"
+          component={EBills}
+          options={{
+            header: () => <AppBar title="E-Bills" back={false} />,
             animation: 'slide_from_right'
           }}
         />

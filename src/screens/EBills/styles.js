@@ -7,26 +7,26 @@ const styles = StyleSheet.create({
     gap: 12,
     marginTop: 25
   },
-  expenses: {
+  total: {
     ...typography.body0,
     color: colors.white,
     fontSize: 20
   },
-  expenseTotal: {
+  totalValue: {
     ...typography.body0,
     color: colors.success,
     fontSize: 30
   },
-  budgets: {
+  smsList: {
     flexGrow: 1,
     width: '100%'
   },
-  budgetContent: {
+  smsListContent: {
     gap: 20,
     paddingHorizontal: 25,
     paddingVertical: 25
   },
-  budget: {
+  sms: {
     ...padding.symmetric(12, 12),
     ...layout.column,
     gap: 3,
@@ -35,18 +35,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 3
   },
-  budgetText: {
+  smsText: {
     ...typography.body0,
     color: colors.white,
     fontSize: 20
-  },
-  addBtn: {
-    position: 'absolute',
-    bottom: 20,
-    right: 20,
-    padding: 12,
-    backgroundColor: colors.white,
-    borderRadius: 200
   }
 });
 
