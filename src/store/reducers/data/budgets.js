@@ -13,7 +13,6 @@ export const slice = createSlice({
       state.all = action.payload;
     },
     addBudget(state, action) {
-      console.log(state.all);
       state.all = [...state.all, action.payload];
     },
     updateBudget(state, action) {

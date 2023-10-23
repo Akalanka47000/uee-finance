@@ -13,8 +13,6 @@ import { currentMonthExpenses, setSelectedExpense } from '@/store/reducers/data/
 import { toggleBalanceDialog, toggleExpenseDialog } from '@/store/reducers/ui/home';
 import styles from './styles';
 
-const categories = ['Shopping', 'Food', 'Travel', 'Entertainment', 'Health', 'Education', 'Other'];
-
 const onExpenseClick = (expense) => {
   if (moment(expense.full_date).isAfter(moment(), 'day'))
     return global.alert.warn('You cannot set expenses for future dates');
@@ -28,6 +26,7 @@ const Home = () => {
   const expenses = useSelector(currentMonthExpenses);
   const startingBalance = useSelector((state) => state.data.expenses.startingBalance);
   const budgets = useSelector((state) => state.data.budgets.all);
+  const categories = useSelector((state) => state.data.labels.all);
 
   const savings = useMemo(() => {
     if (startingBalance === null) return 0;
