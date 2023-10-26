@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  plan: 'FREE'
+  plan: 'FREE',
+  paid: false
 };
 
 export const slice = createSlice({
@@ -10,10 +11,13 @@ export const slice = createSlice({
   reducers: {
     setPlan(state, action) {
       state.plan = action.payload;
+    },
+    setPaid(state, action) {
+      state.paid = action.payload;
     }
   }
 });
 
-export const { setPlan } = slice.actions;
+export const { setPlan, setPaid } = slice.actions;
 
 export default slice.reducer;

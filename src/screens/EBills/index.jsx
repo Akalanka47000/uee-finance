@@ -1,9 +1,11 @@
 import { useCallback } from 'react';
 import { useEffect, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import SmsAndroid from 'react-native-get-sms-android';
 import { Text } from 'react-native-paper';
+import { useSelector } from 'react-redux';
 import { store } from '@/store';
 import { default as styles } from './styles';
 
@@ -24,6 +26,17 @@ const getAmount = (body) => {
 
 const EBills = () => {
   const [smsList, setSmsList] = useState([]);
+
+  const paid = useSelector((state) => state.data.subscription.paid);
+
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    if (paid === false) {
+      global.alert.warn('Please upgrade to premium to use this feature');
+      setTimeout(() => navigation.goBack(), 150);
+    }
+  }, [paid]);
 
   useEffect(() => {
     // SmsAndroid.list(

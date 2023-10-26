@@ -1,6 +1,7 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { default as RNBootSplash } from 'react-native-bootsplash';
+import { useSelector } from 'react-redux';
 import { AppBar } from '@/components/core';
 import { default as theme } from '@/config/theme';
 import { FileDownload } from '@/icons';
@@ -14,6 +15,7 @@ const Drawer = createDrawerNavigator();
 const onReady = () => setTimeout(() => RNBootSplash.hide(), 500);
 
 const NavigationStack = () => {
+  const paid = useSelector((state) => state.data.subscription.paid);
   return (
     <NavigationContainer ref={navigationRef} onReady={onReady} theme={theme}>
       <Drawer.Navigator initialRouteName="Home" screenOptions={styles.drawer}>
@@ -61,20 +63,23 @@ const NavigationStack = () => {
           }}
         />
         <Drawer.Screen
-          name="Invoice Scanner"
+          name={`Scanner ${!paid ? '(Premium)' : ''}`}
           component={Scanner}
           options={{
             header: () => <AppBar title="Scan Invoice" back={false} />,
-            animation: 'slide_from_right'
+            animation: 'slide_from_right',
+            swipeEnabled: paid
           }}
         />
         <Drawer.Screen
-          name="E-Bills"
+          name={`E-Bills ${!paid ? '(Premium)' : ''}`}
           component={EBills}
           options={{
             header: () => <AppBar title="E-Bills" back={false} />,
-            animation: 'slide_from_right'
+            animation: 'slide_from_right',
+            swipeEnabled: paid
           }}
+          g
         />
       </Drawer.Navigator>
     </NavigationContainer>
